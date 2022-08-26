@@ -1,12 +1,18 @@
 
-import styles from './global.css';
+import { Header } from './components/Header';
+import  './global.css';
+import styles from './App.module.css';
 
 function App() {
 
   return (
-    <div className={styles.wrapper}>
-      <div>Hello Ignite</div>
-   </div>
+    <>
+      <Header></Header>
+      <div className={styles.wrapper}>
+        <Header/>
+        <div>Hello Ignite</div>
+      </div>
+   </>
   )
 }
 
