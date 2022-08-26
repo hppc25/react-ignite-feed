@@ -4,6 +4,7 @@ import { SideBar } from './components/SideBar';
 import  './global.css';
 import styles from './App.module.css';
 import { Post } from './components/Post';
+import {posts} from './mock'
 
 function App() {
 
@@ -13,8 +14,11 @@ function App() {
       <div className={styles.wrapper}>
         <SideBar/>
           <main>
-            <Post></Post>
-            <Post></Post>
+            {posts.map(post => <Post
+              key={post.id}
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt} />)}
           </main>
       </div>
    </>
