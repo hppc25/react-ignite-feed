@@ -1,8 +1,12 @@
 
+import styles from './global.css';
+
 function App() {
 
   return (
-   <div>Hello Ignite</div>
+    <div className={styles.wrapper}>
+      <div>Hello Ignite</div>
+   </div>
   )
 }
 
