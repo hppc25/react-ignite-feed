@@ -1,5 +1,6 @@
 
 import { Header } from './components/Header';
+import { SideBar } from './components/SideBar';
 import  './global.css';
 import styles from './App.module.css';
 
@@ -7,9 +8,9 @@ function App() {
 
   return (
     <>
-      <Header></Header>
+      <Header/>
       <div className={styles.wrapper}>
-        <Header/>
+        <SideBar/>
         <div>Hello Ignite</div>
       </div>
    </>
