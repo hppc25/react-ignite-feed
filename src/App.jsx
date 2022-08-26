@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { SideBar } from './components/SideBar';
 import  './global.css';
 import styles from './App.module.css';
+import { Post } from './components/Post';
 
 function App() {
 
@@ -11,7 +12,10 @@ function App() {
       <Header/>
       <div className={styles.wrapper}>
         <SideBar/>
-        <div>Hello Ignite</div>
+          <main>
+            <Post></Post>
+            <Post></Post>
+          </main>
       </div>
    </>
   )
