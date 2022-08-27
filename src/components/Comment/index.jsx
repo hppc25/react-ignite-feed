@@ -1,11 +1,18 @@
-import { ThumbsUp, Trash } from 'phosphor-react';
-import styles from './styles.module.css';
-import { Avatar } from '../Avatar';
+import { ThumbsUp, Trash } from "phosphor-react";
+import { useState } from "react";
+import styles from "./styles.module.css";
+import { Avatar } from "../Avatar";
 
-export function Comment({content}) {
+export function Comment({ content, onDeleteComment }) {
+  const [likeCount, setLikeCount] = useState(0);
 
-   function handleDelete() {
-    props.onDeleteComment(props.content);
+  function handleDelete() {
+    onDeleteComment(content);
+  }
+
+  function handleLikeComment() {
+    // setLikeCount(likeCount + 1);
+    setLikeCount((state) => state + 1);
   }
 
   return (
@@ -18,25 +25,27 @@ export function Comment({content}) {
             <div className={styles.authorAndTime}>
               <strong>Helder Correia</strong>
               <time
-                title='06 de Junho de 2022 às 15h30'
+                title="06 de Junho de 2022 às 15h30"
                 dateTime="2022-06-06 15:33:00"
               >
                 Cerca de 1h atrás
               </time>
             </div>
 
-            <button 
-              title='Deletar comentário'
-              onClick={handleDelete}
-              >
+            <button title="Deletar comentário" onClick={handleDelete}>
               <Trash size={24} />
             </button>
           </header>
 
           <p>{content} </p>
         </div>
-        <footer><button><ThumbsUp /> Aplaudir <span>20</span></button></footer>
+
+        <footer>
+          <button onClick={handleLikeComment}>
+            <ThumbsUp /> Aplaudir <span>{likeCount}</span>
+          </button>
+        </footer>
       </div>
     </div>
-  )
+  );
 }
